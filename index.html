@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EdIn - Research Integrity Dashboard</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="sidebar">
+  <h2>EdIn</h2>
+  <ul>
+    <li><a href="index.html">Dashboard</a></li>
+    <li><a href="solutions.html">Solutions</a></li>
+    <li><a href="analysis.html">AI Analysis</a></li>
+    <li><a href="reports.html">Reports</a></li>
+    <li><a href="settings.html">Settings</a></li>
+  </ul>
+</div>
+<div class="main">
+  <header>
+    <h1>Research Integrity Transparency Dashboard</h1>
+  </header>
+  <section class="charts">
+    <div class="chart-container">
+      <h3>AI Contribution Overview</h3>
+      <canvas id="pieChart"></canvas>
+    </div>
+    <div class="chart-container">
+      <h3>AI Usage Map</h3>
+      <canvas id="usageMap"></canvas>
+    </div>
+  </section>
+  <section class="compliance">
+    <h3>Compliance Metrics</h3>
+    <div class="metrics">
+      <div class="card">Disclosure Rate: 85%</div>
+      <div class="card">Reproducibility Score: 78%</div>
+      <div class="card">Integrity Rating: 82%</div>
+    </div>
+    <h3>Submission Integrity Table</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Paper ID</th><th>Title</th><th>AI Usage %</th><th>Reproducibility</th><th>Integrity Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>001</td><td>Example Paper 1</td><td>30%</td><td>80%</td><td>85%</td></tr>
+        <tr><td>002</td><td>Example Paper 2</td><td>50%</td><td>70%</td><td>75%</td></tr>
+        <tr><td>003</td><td>Example Paper 3</td><td>20%</td><td>90%</td><td>88%</td></tr>
+      </tbody>
+    </table>
+  </section>
+</div>
+<script src="script.js"></script>
+<script>
+const pieCtx = document.getElementById('pieChart').getContext('2d');
+const pieChart = new Chart(pieCtx, {
+    type: 'pie',
+    data: {
+        labels: ['Human Authored', 'AI-Assisted', 'Fully AI-Generated'],
+        datasets: [{
+            data: [50, 35, 15],
+            backgroundColor: ['#2ecc71','#f1c40f','#e74c3c']
+        }]
+    },
+    options: { responsive: true }
+});
+
+const usageCtx = document.getElementById('usageMap').getContext('2d');
+const usageMap = new Chart(usageCtx, {
+    type: 'scatter',
+    data: {
+        datasets: [{
+            label: 'Papers',
+            data: [{x: 1, y: 10},{x:2, y:5},{x:3,y:8}],
+            backgroundColor: '#3498db'
+        }]
+    },
+    options: { responsive: true, scales: { x: { title: {display:true,text:'Human → Fully AI'} }, y: { title: {display:true,text:'Low → High AI Contribution'} } } }
+});
+</script>
+</body>
+</html>

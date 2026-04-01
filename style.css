@@ -1,0 +1,14 @@
+
+body { margin: 0; font-family: Arial, sans-serif; background-color:#f4f4f4;}
+.sidebar { width: 200px; background:#2c3e50; height:100vh; position:fixed; color:white; padding:20px;}
+.sidebar ul { list-style:none; padding:0;}
+.sidebar ul li { margin:20px 0;}
+.sidebar ul li a { color:white; text-decoration:none;}
+.main { margin-left:220px; padding:20px;}
+header h1 { color:#34495e;}
+.chart-container { width:45%; display:inline-block; margin-right:5%;}
+.metrics { display:flex; gap:10px; margin:10px 0;}
+.card { background:#ecf0f1; padding:10px; border-radius:5px; flex:1;}
+table { width:100%; border-collapse: collapse;}
+table, th, td { border:1px solid #ccc;}
+th, td { padding:10px; text-align:left;}
